@@ -14,13 +14,13 @@
   </ion-header>
 
   <img class="dog" *ngFor="let img of images" src={{img.message}}>
- 
+  <h1 class="error" id="err"></h1>
   <div>
     <ion-input id="name" class="input-box" placeholder="What's your name?"></ion-input>
     </div>
 
     <div>
-      <ion-button color="tertiary" shape="round" size="default" class="btn">Predict!</ion-button>
+      <ion-button (click)="goToPredictions()" color="tertiary" shape="round" size="default" class="btn">Predict!</ion-button>
       </div>
 
 </ion-content>
