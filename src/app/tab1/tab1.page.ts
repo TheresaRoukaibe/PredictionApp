@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class Tab1Page {
   images: {message: string}[] = [];
+  
   constructor(private http:HttpClient) {
     this.http.get('https://dog.ceo/api/breeds/image/random').subscribe((data) => {
       this.images.push({message: data['message']});
