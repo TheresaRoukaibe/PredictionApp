@@ -1,8 +1,17 @@
 .title{
-    color:pink;
+    color:purple;
     justify-content: center;
 }
 
 ion-content.background{
     --background: url(../../assets/img/bg.jpg);
+}
+
+.dog{
+    width: 200px;
+    height: 200px;
+    margin-left: 15%;
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 10px;
 }

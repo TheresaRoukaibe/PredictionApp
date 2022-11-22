@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class="title">
-      Ego-Guesser
+      I-Guess
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,10 +9,10 @@
 <ion-content class="background" [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title class="title" size="large">Ego-Guesser</ion-title>
+      <ion-title class="title" size="large">I-Guess</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <img *ngFor="let img of images" src={{img.message}}>
+  <img class="dog" *ngFor="let img of images" src={{img.message}}>
  
 </ion-content>
