@@ -10,8 +10,8 @@ import { getRenderingRef } from 'ionicons/dist/types/stencil-public-runtime';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  users: {age: string}[] = [];
-
+  ages: {age_num: string}[] = [];
+  nations: {nation: string}[] = [];
   constructor(private http:HttpClient) {
      this.getName();
   }
@@ -24,10 +24,18 @@ export class Tab2Page {
     greeting.innerText = "Welcome " + user['name'] + "!";
     greetingAnd.innerText = "Welcome " + user['name'] + "!";
     this.http.get('https://api.agify.io/?name=' + user['name']).subscribe((data) => {
-      this.users.push({age: data['age']});
+      this.ages.push({age_num: data['age']});
     }, (err) => {
         console.log(err);
       })
+
+      this.http.get('https://api.nationalize.io/?name=' + user['name']).subscribe((data) => {
+      this.nations.push({nation: data['country']});
+      console.log(this.nations[0]);
+    }, (err) => {
+        console.log(err);
+      })
+
   }
 
 }
