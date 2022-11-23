@@ -16,7 +16,10 @@ export class Tab2Page {
   async getName(){
     const ret = await Preferences.get({key: 'user'});
     const user = JSON.parse(ret.value);
-    console.log(user);
+    const greeting = document.getElementById('title');
+    const greetingAnd = document.getElementById('titleAndroid');
+    greeting.innerText = "Welcome " + user['name'] + "!";
+    greetingAnd.innerText = "Welcome " + user['name'] + "!";
   }
 
 }
