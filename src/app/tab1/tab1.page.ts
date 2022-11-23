@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { Preferences } from '@capacitor/preferences';
 
 @Component({
   selector: 'app-tab1',
@@ -8,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  private storage: Storage;
   images: {message: string}[] = [];
 
   constructor(private http:HttpClient, private router:Router) {
@@ -25,6 +28,12 @@ export class Tab1Page {
     if(name.value == ""){
 error.innerText = "Please enter your name!";
     }else{
+    Preferences.set({
+key: 'user',
+value: JSON.stringify({
+name: name.value
+})
+    });
     this.router.navigate(["/tabs/tab2"]);
   }
   }

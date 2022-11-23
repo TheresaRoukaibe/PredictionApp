@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { Preferences } from '@capacitor/preferences';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor() {
+    this.getName();
+  }
+
+  async getName(){
+    const ret = await Preferences.get({key: 'user'});
+    const user = JSON.parse(ret.value);
+    console.log(user);
+  }
 
 }
