@@ -17,27 +17,28 @@
     <ion-card-header>
       <ion-card-title>Our Predictions: </ion-card-title>
     </ion-card-header>
+
     <ion-card-content class="content">
-      <ion-list>
-        <ion-item>
+      <ion-list *ngFor="let user of users">
+        <ion-item >
           <ion-thumbnail slot="start">
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+            <ion-icon class="icon" name="heart-half"></ion-icon>
           </ion-thumbnail>
-          <ion-label>Item</ion-label>
+          <ion-label style="font-size:12px"id="gender">Gender: </ion-label>
         </ion-item>
   
         <ion-item>
           <ion-thumbnail slot="start">
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+            <ion-icon class="icon" name="accessibility"></ion-icon>
           </ion-thumbnail>
-          <ion-label>Item</ion-label>
+          <ion-label id="age" >Age: {{user.age}}</ion-label>
         </ion-item>
   
         <ion-item lines="none">
           <ion-thumbnail slot="start">
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+            <ion-icon name="earth" class="icon"></ion-icon>
           </ion-thumbnail>
-          <ion-label>Item</ion-label>
+          <ion-label id="nation">Nationality: </ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
