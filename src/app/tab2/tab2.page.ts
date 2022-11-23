@@ -12,6 +12,7 @@ import { getRenderingRef } from 'ionicons/dist/types/stencil-public-runtime';
 export class Tab2Page {
   ages: {age_num: string}[] = [];
   nations: {nation: string}[] = [];
+  genders: {gender: string}[] = [];
   constructor(private http:HttpClient) {
      this.getName();
   }
@@ -35,6 +36,12 @@ export class Tab2Page {
     }, (err) => {
         console.log(err);
       })
+
+      this.http.get('https://api.genderize.io/?name=' + user['name']).subscribe((data) => {
+        this.genders.push({gender: data['gender']});
+      }, (err) => {
+          console.log(err);
+        })
 
   }
 

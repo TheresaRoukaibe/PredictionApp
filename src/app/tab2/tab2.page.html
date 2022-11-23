@@ -20,25 +20,25 @@
 
     <ion-card-content class="content">
       <ion-list >
-        <ion-item>
+        <ion-item *ngFor="let gender of genders">
           <ion-thumbnail slot="start">
             <ion-icon class="icon" name="heart-half"></ion-icon>
           </ion-thumbnail>
-          <ion-label style="font-size:12px"id="gender">Gender: </ion-label>
+          <ion-label style="font-size:12px"id="gender">Gender: {{genders[0].gender}}</ion-label>
         </ion-item>
   
         <ion-item *ngFor="let age of ages">
           <ion-thumbnail slot="start">
             <ion-icon class="icon" name="accessibility"></ion-icon>
           </ion-thumbnail>
-          <ion-label id="age" >Age: {{ages[0].age_num}}</ion-label>
+          <ion-label style="font-size:12px" id="age" >Age: {{ages[0].age_num}}</ion-label>
         </ion-item>
   
         <ion-item *ngFor="let ctry of nations" lines="none">
           <ion-thumbnail slot="start">
             <ion-icon name="earth" class="icon"></ion-icon>
           </ion-thumbnail>
-          <ion-label id="nation">Nationality: {{nations[0].nation[0].country_id}}</ion-label>
+          <ion-label style="font-size:12px" id="nation">Nationality: {{nations[0].nation[0].country_id}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
